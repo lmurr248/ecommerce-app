@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import "./App.css";
-import HomeScreen from "./screens/HomeScreen";
+import HomeScreen from "./Screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 
 class App extends Component {
