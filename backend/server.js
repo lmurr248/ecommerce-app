@@ -7,7 +7,7 @@ app.use(cors());
 
 app.get("/api/products/:id", (req, res) => {
   const productId = req.params.id;
-  const product = data.products.find((x) => x.id === productId);
+  const product = data.products.find((x) => x._id === productId); 
   if (product) {
     res.send(product);
   } else {

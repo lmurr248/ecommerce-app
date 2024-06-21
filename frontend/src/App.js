@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import CartScreen from "./screens/CartScreen";
 
 class App extends Component {
   render() {
@@ -23,8 +24,8 @@ class App extends Component {
               <Link to="/">E-Commerce</Link>
             </div>
             <div className="header-links">
-              <a href="/cart">Cart</a>
-              <a href="/signin">Sign In</a>
+              <Link to="/cart">Cart</Link>
+              <Link to="/signin">Sign In</Link>
             </div>
           </header>
           <aside className="sidebar">
@@ -34,17 +35,18 @@ class App extends Component {
             </button>
             <ul>
               <li>
-                <a href="/">Trousers</a>
+                <Link to="/">Trousers</Link>
               </li>
               <li>
-                <a href="/">Shirts</a>
+                <Link to="/">Shirts</Link>
               </li>
             </ul>
           </aside>
           <main className="main">
             <div className="content">
               <Routes>
-                <Route path="/product/:id" element={<ProductScreen />} />
+                <Route path="/product/:_id" element={<ProductScreen />} />
+                <Route path="/cart/:_id?" element={<CartScreen />} />
                 <Route path="/" element={<HomeScreen />} />
               </Routes>
             </div>

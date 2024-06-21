@@ -1,6 +1,6 @@
 const products = [
   {
-    id: "1",
+    _id: "1",
     name: "Slim shirt",
     category: "Shirts",
     image: "/images/d1.jpg",
@@ -11,7 +11,7 @@ const products = [
     countInStock: 6,
   },
   {
-    id: "2",
+    _id: "2",
     name: "Fit shirt",
     category: "Shirts",
     image: "/images/d1.jpg",
@@ -19,10 +19,10 @@ const products = [
     brand: "Nike",
     rating: 4.2,
     numReviews: 5,
-    countInStock: 0,
+    countInStock: 20,
   },
   {
-    id: "3",
+    _id: "3",
     name: "Best pants",
     category: "Trousers",
     image: "/images/d1.jpg",
