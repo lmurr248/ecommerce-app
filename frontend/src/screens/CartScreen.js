@@ -1,12 +1,14 @@
+// CartScreen.js
+
 import React, { useEffect } from 'react';
-import { Link, useParams, useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
+import { Link, useParams, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, addToCart } from '../actions/cartActions';
 
 function CartScreen() {
   const { id: productId } = useParams();
   const location = useLocation();
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
@@ -24,7 +26,11 @@ function CartScreen() {
   };
 
   const checkoutHandler = () => {
-    navigate('/signin?redirect=shipping'); 
+    navigate('/signin?redirect=shipping');
+  };
+
+  const updateQtyHandler = (productId, qty) => {
+    dispatch(addToCart(productId, qty)); // Dispatch addToCart with the updated qty
   };
 
   return (
@@ -45,9 +51,7 @@ function CartScreen() {
                   <select
                     value={item.qty}
                     onChange={(e) =>
-                      dispatch(
-                        addToCart(item.product, Number(e.target.value))
-                      )
+                      updateQtyHandler(item.product, Number(e.target.value))
                     }
                   >
                     {[...Array(item.countInStock).keys()].map((x) => (
@@ -63,7 +67,6 @@ function CartScreen() {
                   >
                     Delete
                   </button>
-                  {console.log(item.product)}
                 </div>
               </div>
               <div className="cart-price">£{item.price}</div>
@@ -73,7 +76,7 @@ function CartScreen() {
       </div>
       <div className="cart-action">
         <h3>
-          Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} items) : £
+          Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : £
           {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
         </h3>
         <button
