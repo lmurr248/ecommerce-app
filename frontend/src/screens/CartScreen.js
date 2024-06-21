@@ -43,8 +43,8 @@ function CartScreen() {
                 <img src={item.image} alt="product" />
               </div>
               <div className="cart-name">
-                <div>
-                  <Link to={`/product/${item.product}`}>{item.name}</Link>
+                <div className="cart-product-title">
+                  <h3><Link to={`/product/${item.product}`}>{item.name}</Link></h3>
                 </div>
                 <div>
                   Qty:{' '}
@@ -62,7 +62,7 @@ function CartScreen() {
                   </select>{' '}
                   <button
                     type="button"
-                    className="button"
+                    className="button secondary"
                     onClick={() => removeFromCartHandler(item.product)}
                   >
                     Delete

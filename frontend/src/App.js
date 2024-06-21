@@ -21,11 +21,11 @@ class App extends Component {
           <header className="header">
             <div className="brand">
               <button onClick={openMenu}>&#9776;</button>
-              <Link to="/">E-Commerce</Link>
+              <Link to="/">E-Commerce App</Link>
             </div>
             <div className="header-links">
-              <Link to="/cart">Cart</Link>
-              <Link to="/signin">Sign In</Link>
+              <Link to="/cart"><button className="cart">Cart</button></Link>
+              <Link to="/signin"><button className="sign-in">Sign In</button></Link>
             </div>
           </header>
           <aside className="sidebar">

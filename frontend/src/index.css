@@ -9,8 +9,12 @@ body {
   margin: 0;
 }
 
-button {
-  font-size: 1.4rem;
+
+
+button.secondary {
+  padding: 0.2rem 1rem;
+  font-size: 75%;
+  border-radius: 3px;
 }
 
 .full-width{
@@ -34,22 +38,24 @@ button {
 
 .header {
   grid-area: header;
-  background-color: #203040;
-  color: #fff;
+  
+  color: #09090B;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  border-bottom: #e4e4e766 0.1rem solid;
 }
 
 .header-links {
   display: flex;
   justify-content: space-evenly;
-  gap: 1rem;
+  gap: .1rem;
+  align-items: center;
 }
 
 .header-links a {
-  color: white;
+  color: #ff9100;
   text-decoration: none;
 }
 
@@ -57,11 +63,36 @@ button {
   color: #ff8000;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .brand a {
-  color: white;
-  font-size: 2.5rem;
+  color: #09090B;
+  font-size: 1.8rem;
   font-weight: bold;
   text-decoration: none;
+}
+
+button.cart {
+  background-color: #e4e4e766;
+  color: #09090B;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+}
+
+button.sign-in {
+  background-color: #e4e4e766;
+  color: #09090B;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
 }
 
 .main {
@@ -92,6 +123,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  
 }
 
 .products li {
@@ -99,19 +131,30 @@ a:hover {
   padding: 0;
   flex: 0 1 34rem;
   margin: 1rem;
-  height: 50rem;
-  border-bottom: 0.1rem grey solid;
+  max-width: 250px;
 }
 
 .product {
   display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    border: #d5d5d5 solid 0.1rem;
+    border-radius: 8px;
+}
+
+.product-details {
+  display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  padding: 1rem;
+    background-color: #e4e4e766;
+    height: 100%;
+    border-radius: 0px 0px 8px 8px;
+    gap: .5rem;
 }
 
 .product-name {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: bold;
 }
 
@@ -126,8 +169,10 @@ a:hover {
 }
 
 .product-image {
-  max-width: 34rem;
-  max-height: 34rem;
+  width: 100%;
+    height: 24rem;
+    border-radius: 8px;
+    object-fit: contain;
 }
 
 .product-rating {
@@ -137,11 +182,12 @@ a:hover {
 /* Sidebar */
 
 .brand button {
-  font-size: 3rem;
-  padding: 0.5rem;
+  font-size: 2rem;
+  
   background: none;
-  border: none;
-  color: white;
+  border: solid 1px #09090B;
+  border-radius: 3px;
+  color: #09090B;
   cursor: pointer;
 }
 
@@ -278,6 +324,7 @@ a:hover {
   align-items: flex-end;
   margin-bottom: 1rem;
    border-bottom: .1rem solid #808080;
+   padding: 1rem;
   }
 
   .cart-list-container li img {
@@ -298,6 +345,7 @@ align-items: flex-end;
 
 .cart-name {
   flex: 8 1;
+padding: 1rem;
 }
 
 .cart-price {
