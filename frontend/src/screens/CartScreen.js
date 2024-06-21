@@ -1,9 +1,9 @@
 // CartScreen.js
 
-import React, { useEffect } from 'react';
-import { Link, useParams, useLocation, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, addToCart } from '../actions/cartActions';
+import React, { useEffect } from "react";
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart, addToCart } from "../actions/cartActions";
 
 function CartScreen() {
   const { id: productId } = useParams();
@@ -16,7 +16,9 @@ function CartScreen() {
 
   useEffect(() => {
     if (productId) {
-      const qty = location.search ? Number(new URLSearchParams(location.search).get('qty')) : 1;
+      const qty = location.search
+        ? Number(new URLSearchParams(location.search).get("qty"))
+        : 1;
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, location.search]);
@@ -26,7 +28,7 @@ function CartScreen() {
   };
 
   const checkoutHandler = () => {
-    navigate('/signin?redirect=shipping');
+    navigate("/signin?redirect=shipping");
   };
 
   const updateQtyHandler = (productId, qty) => {
@@ -44,22 +46,24 @@ function CartScreen() {
               </div>
               <div className="cart-name">
                 <div className="cart-product-title">
-                  <h3><Link to={`/product/${item.product}`}>{item.name}</Link></h3>
+                  <h3>
+                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                  </h3>
                 </div>
                 <div>
-                  Qty:{' '}
+                  Qty:{" "}
                   <select
                     value={item.qty}
                     onChange={(e) =>
                       updateQtyHandler(item.product, Number(e.target.value))
                     }
                   >
-                    {[...Array(item.countInStock).keys()].map((x) => (
+                    {[...Array(item.countinstock).keys()].map((x) => (
                       <option key={x + 1} value={x + 1}>
                         {x + 1}
                       </option>
                     ))}
-                  </select>{' '}
+                  </select>{" "}
                   <button
                     type="button"
                     className="button secondary"

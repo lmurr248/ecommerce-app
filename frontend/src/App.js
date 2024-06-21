@@ -4,6 +4,7 @@ import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
+import { connect } from "react-redux";
 
 class App extends Component {
   render() {
@@ -24,8 +25,12 @@ class App extends Component {
               <Link to="/">E-Commerce App</Link>
             </div>
             <div className="header-links">
-              <Link to="/cart"><button className="cart">Cart</button></Link>
-              <Link to="/signin"><button className="sign-in">Sign In</button></Link>
+              <Link to="/cart">
+                <button className="cart">Cart</button>
+              </Link>
+              <Link to="/signin">
+                <button className="sign-in">Sign In</button>
+              </Link>
             </div>
           </header>
           <aside className="sidebar">
