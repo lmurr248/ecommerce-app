@@ -5,6 +5,16 @@ const cors = require("cors");
 
 app.use(cors());
 
+app.get("/api/products/:id", (req, res) => {
+  const productId = req.params.id;
+  const product = data.products.find((x) => x.id === productId);
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: "Product Not Found." });
+  }
+});
+
 app.get("/api/products", (req, res) => {
   res.send(data.products);
 });

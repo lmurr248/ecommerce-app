@@ -8,6 +8,7 @@ const products = [
     brand: "Nike",
     rating: 4.5,
     numReviews: 10,
+    countInStock: 6,
   },
   {
     id: "2",
@@ -18,6 +19,7 @@ const products = [
     brand: "Nike",
     rating: 4.2,
     numReviews: 5,
+    countInStock: 0,
   },
   {
     id: "3",
@@ -28,6 +30,7 @@ const products = [
     brand: "Nike",
     rating: 4.7,
     numReviews: 12,
+    countInStock: 12,
   },
 ];
 
