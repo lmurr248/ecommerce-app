@@ -1,27 +1,12 @@
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
-const { Pool } = require("pg");
-const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
-
-dotenv.config({
-  path: path.resolve(__dirname, "../.env"),
-});
-
-const pool = new Pool({
-  user: process.env.PGUSER,
-  host: process.env.PGHOST,
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD,
-  port: process.env.PGPORT,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
+const bodyParser = require("body-parser");
+const { pool } = require("./db");
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 

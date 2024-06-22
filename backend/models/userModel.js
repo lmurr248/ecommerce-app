@@ -1,19 +1,26 @@
-// userModel.js
-const { Pool } = require("pg");
-const dotenv = require("dotenv");
+const bcrypt = require("bcrypt");
+const { pool } = require("../db");
 
-dotenv.config();
-
-const pool = new Pool({
-  user: process.env.PGUSER,
-  host: process.env.PGHOST,
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD,
-  port: process.env.PGPORT,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
+// Function to find user by email and password
+const findUserByEmailAndPassword = async (email, password) => {
+  const client = await pool.connect();
+  try {
+    const { rows } = await client.query(
+      "SELECT * FROM users WHERE email = $1",
+      [email]
+    );
+    const user = rows[0];
+    if (user && (await bcrypt.compare(password, user.password))) {
+      return user;
+    }
+    return null;
+  } catch (error) {
+    console.error("Error finding user:", error);
+    throw error;
+  } finally {
+    client.release();
+  }
+};
 
 // Create users table if not exists
 const createUserTable = async () => {
@@ -36,17 +43,18 @@ const createUserTable = async () => {
   }
 };
 
-// Function to create a new user
+// Hash password before creating user
 const createUser = async (name, email, password, isAdmin = false) => {
   const client = await pool.connect();
   try {
+    const hashedPassword = await bcrypt.hash(password, 10);
     const { rows } = await client.query(
       `
       INSERT INTO users (name, email, password, is_admin)
       VALUES ($1, $2, $3, $4)
       RETURNING *
     `,
-      [name, email, password, isAdmin]
+      [name, email, hashedPassword, isAdmin]
     );
     return rows[0];
   } catch (error) {
@@ -97,5 +105,6 @@ module.exports = {
   createUser,
   createAdminUser,
   getUsers,
+  findUserByEmailAndPassword,
   pool,
 };

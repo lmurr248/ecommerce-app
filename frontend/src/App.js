@@ -4,7 +4,10 @@ import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
-import { connect } from "react-redux";
+import SigninScreen from "./screens/SigninScreen";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:5000";
 
 class App extends Component {
   render() {
@@ -50,6 +53,7 @@ class App extends Component {
           <main className="main">
             <div className="content">
               <Routes>
+                <Route path="/signin/" element={<SigninScreen />} />
                 <Route path="/product/:_id" element={<ProductScreen />} />
                 <Route path="/cart/:_id?" element={<CartScreen />} />
                 <Route path="/" element={<HomeScreen />} />

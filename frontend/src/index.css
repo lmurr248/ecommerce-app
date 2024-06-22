@@ -10,9 +10,10 @@ body {
 }
 
 button.secondary {
-  padding: 0.2rem 1rem;
+  padding: 0.7rem 1rem;
   font-size: 75%;
   border-radius: 3px;
+  text-align: center;
 }
 
 .full-width {
@@ -92,6 +93,7 @@ button.sign-in {
   border-radius: 5px;
   padding: 0.5rem 1.5rem;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .add-to-cart-btn {
@@ -354,4 +356,37 @@ a:hover {
   flex: 1 1;
   font-size: 2.5rem;
   text-align: right;
+}
+
+/* Sign In / Register */
+
+.signin-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  padding: 2rem;
+  border: #d5d5d5 solid 0.1rem;
+  border-radius: 8px;
+  gap: 1.2rem;
+}
+
+.form-container li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-container input {
+  padding: 0.7rem;
+  font-size: 1.6rem;
+  border: #d5d5d5 solid 0.1rem;
+  border-radius: 5px;
 }
