@@ -360,7 +360,8 @@ a:hover {
 
 /* Sign In / Register */
 
-.signin-form {
+.signin-form,
+.register-form {
   display: flex;
   justify-content: center;
   align-items: center;

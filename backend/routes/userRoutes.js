@@ -31,9 +31,20 @@ router.post("/signin", async (req, res) => {
 router.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const result = await createUser(name, email, password);
-    res.status(201).send(result);
+    const user = await createUser(name, email, password);
+    if (user) {
+      res.status(201).send({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        is_admin: user.is_admin,
+        token: getToken(user),
+      });
+    } else {
+      res.status(400).send({ message: "Invalid user data" });
+    }
   } catch (err) {
+    console.error("Error during registration:", err);
     res.status(500).send({ message: err.message });
   }
 });
