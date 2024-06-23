@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { thunk } from "redux-thunk"; // Correct import of thunk
+import { thunk } from "redux-thunk"; 
 import {
   productListReducer,
   productDetailsReducer,
 } from "./reducers/productReducers";
-import cartReducer from "./reducers/cartReducers"; // Correct import of cartReducer
+import cartReducer from "./reducers/cartReducers"; 
 import {
   userRegisterReducer,
   userSigninReducer,
