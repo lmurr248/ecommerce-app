@@ -21,7 +21,7 @@ const App = () => {
   };
 
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const { userInfo } = userSignin || {};
 
   return (
     <BrowserRouter>

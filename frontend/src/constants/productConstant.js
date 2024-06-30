@@ -1,7 +1,7 @@
-export const PRODUCT_LIST_REQUEST = "PRODUCT_LIST_REQUEST";
-export const PRODUCT_LIST_SUCCESS = "PRODUCT_LIST_SUCCESS";
-export const PRODUCT_LIST_FAIL = "PRODUCT_LIST_FAIL";
-
-export const PRODUCT_DETAILS_REQUEST = "PRODUCT_DETAILS_REQUEST";
-export const PRODUCT_DETAILS_SUCCESS = "PRODUCT_DETAILS_SUCCESS";
-export const PRODUCT_DETAILS_FAIL = "PRODUCT_DETAILS_FAIL";
+// productConstant.js
+export const PRODUCT_LIST_REQUEST = "productList/fetchRequest";
+export const PRODUCT_LIST_SUCCESS = "productList/fetchSuccess";
+export const PRODUCT_LIST_FAIL = "productList/fetchFail";
+export const PRODUCT_DETAILS_REQUEST = "productDetails/fetchRequest";
+export const PRODUCT_DETAILS_SUCCESS = "productDetails/fetchSuccess";
+export const PRODUCT_DETAILS_FAIL = "productDetails/fetchFail";

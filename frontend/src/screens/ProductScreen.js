@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { detailsProduct } from "../actions/productActions";
+import { detailsProduct } from "../slices/productSlice"; // Correct import path
 import { addToCart } from "../actions/cartActions";
 
 function ProductScreen() {

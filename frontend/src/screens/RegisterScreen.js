@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../actions/userActions";
+import { registerUser } from "../slices/userSlice";
 
 function RegisterScreen(props) {
   const [name, setName] = useState("");
@@ -9,22 +9,24 @@ function RegisterScreen(props) {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const dispatch = useDispatch();
-  const userRegister = useSelector((state) => state.userRegister);
-  const { loading, userInfo, error } = userRegister;
+  const { loading, userInfo, error } = useSelector(
+    (state) => state.user || { loading: false, userInfo: null, error: null }
+  );
   const navigate = useNavigate();
 
   useEffect(() => {
     if (userInfo) {
       navigate("/");
     }
-    return () => {
-      //
-    };
   }, [userInfo, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register(name, email, password));
+    if (password !== rePassword) {
+      alert("Passwords do not match");
+    } else {
+      dispatch(registerUser({ name, email, password }));
+    }
   };
 
   return (

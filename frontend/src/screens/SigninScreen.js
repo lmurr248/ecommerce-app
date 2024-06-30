@@ -1,30 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signin } from "../actions/userActions";
-
-
+import { signinUser } from "../slices/userSlice";
 
 function SigninScreen(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const userSignin = useSelector((state) => state.userSignin);
-  const { loading, userInfo, error } = userSignin;
+  const { loading, userInfo, error } = useSelector(
+    (state) => state.userSignin || {}
+  );
   const navigate = useNavigate();
 
   useEffect(() => {
     if (userInfo) {
       navigate("/");
     }
-    return () => {
-      //
-    };
   }, [userInfo, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password));
+    dispatch(signinUser({ email, password }));
   };
 
   return (
