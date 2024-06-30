@@ -66,27 +66,27 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(USER_REGISTER_REQUEST, (state) => {
+      .addCase(registerUser.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(USER_REGISTER_SUCCESS, (state, action) => {
+      .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
         state.userInfo = action.payload;
       })
-      .addCase(USER_REGISTER_FAIL, (state, action) => {
+      .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
-      .addCase(USER_SIGNIN_REQUEST, (state) => {
+      .addCase(signinUser.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(USER_SIGNIN_SUCCESS, (state, action) => {
+      .addCase(signinUser.fulfilled, (state, action) => {
         state.loading = false;
         state.userInfo = action.payload;
       })
-      .addCase(USER_SIGNIN_FAIL, (state, action) => {
+      .addCase(signinUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

@@ -9,9 +9,7 @@ function RegisterScreen(props) {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const dispatch = useDispatch();
-  const { loading, userInfo, error } = useSelector(
-    (state) => state.user || { loading: false, userInfo: null, error: null }
-  );
+  const { loading, userInfo, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { listProducts } from "../actions/productActions"; // Assuming you have this action
+import { listProducts } from "../actions/productActions"; 
 
 function HomeScreen() {
   const productList = useSelector((state) => state.productList);

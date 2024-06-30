@@ -20,8 +20,7 @@ const App = () => {
     document.querySelector(".sidebar").classList.remove("open");
   };
 
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin || {};
+  const { userInfo } = useSelector((state) => state.user);
 
   return (
     <BrowserRouter>

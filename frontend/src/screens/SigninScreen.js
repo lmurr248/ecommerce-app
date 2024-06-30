@@ -7,9 +7,7 @@ function SigninScreen(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const { loading, userInfo, error } = useSelector(
-    (state) => state.userSignin || {}
-  );
+  const { loading, userInfo, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   useEffect(() => {
